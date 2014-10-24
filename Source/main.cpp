@@ -11,7 +11,6 @@
 #define div 1024
 
 int main() {
-	long long int i;
 	int a;
 	printf("Welcome to Wipe alpha! Choose your mode: \n");
 	get_des();
@@ -25,19 +24,19 @@ int main() {
 		woid(def_malc_size, 0);
 		break;
 	case 3:
-		printf("bye!\n");
-		exit(0);
+		exit();
+		break;
 	}
 	getch();
 	return 0;
 }
 
-int get_des(void) {
+int get_des(void) { //program description
 	printf("1 - setup memory limit and run\n2 - run without limit(lol)\n3 - exit\nMode: ");
 	return 0;
 }
 
-int woid(int mal_size, int limit) {
+int woid(int mal_size, int limit) { //eat RAM
 	int i, memory_start, memory_end;
 	float * get_mem;
 	long long int diftime;
@@ -49,6 +48,7 @@ int woid(int mal_size, int limit) {
 		printf("%d.. ", i);
 		_sleep(1000);
 	}
+	printf("\nStart eating memory... Please wait");
 	memory_start = statex.ullAvailPhys / div / div;
 	const time_t timer1 = time(NULL);
 	while (true){
@@ -63,12 +63,13 @@ int woid(int mal_size, int limit) {
 		get_mem = (float *)malloc(mal_size);
 	}
 	free(get_mem);
+	exit();
 	return 0;
 }
 
-int setup_tool(void) { //средства разработчиков
+int setup_tool(void) { //setup tool
 	int memory_limit;
-	MEMORYSTATUSEX statex; //состояние памяти
+	MEMORYSTATUSEX statex; //get user memory state
 	statex.dwLength = sizeof (statex);
 	GlobalMemoryStatusEx(&statex);
 	printf("Total memory (MB): %d\n", statex.ullTotalPhys / div / div);
@@ -76,5 +77,12 @@ int setup_tool(void) { //средства разработчиков
 	printf("Enter limit: ");
 	scanf("%d", &memory_limit);
 	woid(def_malc_size, memory_limit);
+	return 0;
+}
+
+int exit(void) {
+	printf("bye!\n");
+	getch();
+	exit(0);
 	return 0;
 }
