@@ -1,6 +1,7 @@
 Hi there! Here we have just a little Windows app to play with your RAM. I called it "Wipe" just because I like this word.
 Created with Visual Studio 2013. Also, looks like it works properly only on x64 systems now.
-Here you can download "cpp" and "h" files. Executable files can be downloaded here: http://wavemeup.me/wipe/
+Here you can download "cpp" and "h" files. Executable files can be downloaded here or: http://wavemeup.me/wipe.rar
+P.S. Skip Chrome and Windows warnings, I gonna fix it later.
 Changelog:
 
 Version 1.0.0:
